@@ -91,6 +91,36 @@ run_spark_job_task
 
 ```Python
 
+default_args = {
+    'owner': 'airflow',
+    'depends_on_past': False,
+    'start_date': datetime(2023, 8, 16),
+    'retries': 1,
+    'retry_delay': timedelta(minutes=5),
+}
+
+dag = DAG(
+    'spark_frequent_patterns_dag',
+    default_args=default_args,
+    schedule_interval='0 8,12,15,17 * * 1-5', 
+    catchup=False,
+)
+
+def run_spark_job():
+    from pyspark.sql import SparkSession
+    from pyspark.ml.feature import StringIndexer
+    from pyspark.ml.recommendation import ALS
+    from pyspark.sql.functions import col
+    import os
+    from pyspark.ml.fpm import FPGrowth
+    import findspark
+
+    findspark.init(r"D:\dev0608\venv\Lib\site-packages\pyspark")
+
+    os.environ["SPARK_HOME"] = r"D:\dev0608\venv\Lib\site-packages\pyspark"
+    os.environ["HADOOP_HOME"] = r"D:\spark\hadoop"
+    os.environ["JAVA_HOME"] = r"C:\Program Files\Java\jdk-20"
+
     def process_csv(file_path):
         spark = SparkSession.builder \
             .appName("CSVProcessing") \
@@ -151,8 +181,6 @@ run_spark_job_task = PythonOperator(
 )
 
 run_spark_job_task
-
-<b> Classifica Produtos Analise de Cesta de compras</b>
 
 
 ```
