@@ -21,6 +21,9 @@
 
 #Algoritmos
 
+
+
+#FPGrowth
 ```Python
 
         df = spark.read.csv(file_path, sep=";", header=True, inferSchema=True)
@@ -157,7 +160,7 @@ run_spark_job_task
 
 
 
-
+KMeans | XGBoost
 ```Python
 
 def load_data_from_hive():
@@ -266,7 +269,7 @@ load_data_from_hive_task = PythonOperator(
 
 
 
-
+#Keras
 ```
 <b> Analise e Previsão do Potencial do Lead - Esse esta em teste, precisa definir variaveis a ser usadas</b>
 
@@ -417,7 +420,7 @@ def main():
 <b> Esse era um teste que eu estava desenvolvendo quando em uma rede de franquias, para analisar historico e vendas, ele usaria resultados de utros algoritmos, analisaria as regioes e faria sugestao de lugares em potencial para aberturas de novas unidades e o potencial delas etc. Estava usando LSTM, Keras </b>
 
 
-
+#XGBoost
 ```Python
 
 
@@ -479,6 +482,8 @@ run_xgboost_prediction_task = PythonOperator(
 <b> analisa Os preços de venda, precos concorrentes, vendas do produto, custo, margem e faz uma sugestao de novo preço para vender e ou ser competitivo, é preciso definir as regras dele </b>
 
 
+
+NLTK|PyTorch|Spicy
 
 ```Python
 
