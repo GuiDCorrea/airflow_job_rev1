@@ -1,0 +1,15 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+  - role: control-plane
+    extraMounts:
+      - hostPath: /home/guilherme/python/airflow_job_rev1/dags
+        containerPath: /home/guilherme/python/airflow_job_rev1/dags
+      - hostPath: /home/guilherme/python/airflow_job_rev1/logs
+        containerPath: /home/guilherme/python/airflow_job_rev1/logs
+      - hostPath: /home/guilherme/python/airflow_job_rev1/config
+        containerPath: /home/guilherme/python/airflow_job_rev1/config
+      - hostPath: /home/guilherme/python/airflow_job_rev1/plugins
+        containerPath: /home/guilherme/python/airflow_job_rev1/plugins
+  - role: worker
+
