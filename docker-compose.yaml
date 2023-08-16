@@ -60,6 +60,36 @@ services:
       start_period: 30s
     restart: always
     
+  
+  hadoop:
+    build:
+      context: /home/guilherme/python/airflow_teste/hadoop
+    ports:
+      - "50070:50070"
+      - "8088:8088"
+    volumes:
+      - /home/guilherme/python/airflow_teste/hadoop/data:/opt/hadoop/data
+    networks:
+      - hadoop-net
+
+  hive:
+    build:
+      context: hive
+    ports:
+      - "10000:10000"
+    networks:
+      - hadoop-net
+
+  spark:
+    build:
+      context: spark
+    ports:
+      - "4040:4040"
+    networks:
+      - hadoop-net
+
+
+
 
   sql-server:
     build:
@@ -250,3 +280,5 @@ services:
 volumes:
   postgres-db-volume:
 
+networks:
+  hadoop-net: 
