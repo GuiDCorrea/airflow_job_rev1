@@ -15,6 +15,13 @@ x-airflow-common:
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
     AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session'
+    AIRFLOW__WEBSERVER__NAVBAR_COLOR: '#966eed'
+    AIRFLOW__WEBSERVER__NAVBAR_TEXT_COLOR: '#FFFFFF'
+    AIRFLOW__WEBSERVER__BUTTON_BACKGROUND_COLOR: '#FFFFFF'
+    AIRFLOW__WEBSERVER__INSTANCE_NAME: Admin
+    AIRFLOW__WEBSERVER__EXPOSE_CONFIG	: 'true'
+    # yamllint disable rule:line-length
+
  
     AIRFLOW__SCHEDULER__ENABLE_HEALTH_CHECK: 'true'
    
